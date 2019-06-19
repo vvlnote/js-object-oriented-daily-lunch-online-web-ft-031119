@@ -1,5 +1,4 @@
 // global datastore
-
 let store = { neighborhoods: [], meals: [], customers: [], deliveries: [] };
 let nId = 0;
 class Neighborhood {
@@ -10,20 +9,21 @@ class Neighborhood {
   }
 
   deliveries() {
-
+    return store.deliveries.filter(deliver => deliver.neighorhoodId. == this.id);
   }
   customers() {
-
+    return store.customers.filter(customer => customer.neighorhoodId == this.id);
   }
 
   meals() {
 
+    
   }
 }
 
 let cId = 0;
 class Customer {
-  contructor(name, neighborhoodId) {
+  constructor(name, neighborhoodId) {
     this.id = cId ++;
     this.name = name;
     this.neighborhoodId = neighborhoodId;
@@ -38,7 +38,7 @@ class Customer {
 
   }
   totalSpent() {
-    
+
   }
 }
 
@@ -65,8 +65,8 @@ class Meal {
 }
 
 let dId = 0;
-class Delivery{
-  contructor(mealId neighborhoodId, customerId) {
+class Delivery {
+  constructor(mealId neighborhoodId, customerId) {
     this.id = dId ++;
     this.mealId = mealId;
     this.neighborhoodId = neighborhoodId;
@@ -75,15 +75,15 @@ class Delivery{
   }
 
   meal() {
-
+    return store.meals.find(meal => meal.id == this.mealId);
   }
 
   customer() {
-
+    return store.customers.find(customer => customer.id == this.customerId);
   }
 
   neighborhood() {
-
+    return store.neighborhoods.find(n => n.id == this.neighborhoodId);
   }
 
 }
