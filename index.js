@@ -55,13 +55,22 @@ let store = { neighborhoods: [], meals: [], customers: [], deliveries: [] };
     return store.deliveries.filter(deliver => deliver.meal().id == this.id);
   }
 //
-//   customers() {
+  customers() {
+    let customers = this.deliveries();
+    let distinctC = [];
+    customers.forEach(function(customer, index) {
+      console.log(`customer = ${customer.id}, index = ${index}, index = ${customers.indexOf(customer)}`);
+      if (customers.indexOf(customer) === index) {
+        distinctC.push(customer);
+      }
+    })
+    console.log(`${distinctC[0].id}`)
+    return distinctC;
+  }
 //
-//   }
-//
-//   static byPrice() {
-//
-//   }
+  static byPrice() {
+
+  }
  }
 //
  let dId = 0;
